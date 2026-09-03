@@ -1,0 +1,23 @@
+node_modules/
+dist/
+.env
+*.log
+.DS_Store
+.ouroboros/sessions/
+.ouroboros/workspace/
+.ouroboros/skills/
+.ouroboros/pet.pid
+.claude/
+*.tsbuildinfo
+unpacked_docx/
+*.docx
+# Agent task artifacts — the app's auto-commit (git add -A) must never sweep these in
+gen_math.*
+generate_docx_*
+generate_formatted_docx.*
+generate_q.*
+
+# Desktop client build artifacts
+/desktop/node_modules/
+/desktop/out/
+/desktop/release/

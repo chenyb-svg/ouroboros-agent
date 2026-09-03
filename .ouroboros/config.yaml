@@ -1,0 +1,79 @@
+version: 1
+providers:
+  - name: deepseek
+    type: openai
+    apiKey: ${DEEPSEEK_API_KEY}
+    baseUrl: https://api.deepseek.com
+    models:
+      - deepseek-v4-flash
+      - deepseek-v4-pro
+  - name: moonshot
+    type: openai
+    baseUrl: https://api.moonshot.cn/v1
+    apiKey: ${MOONSHOT_API_KEY}
+    models:
+      - kimi-k2.6
+      - kimi-k2.7-code
+model:
+  provider: deepseek
+  model: deepseek-v4-flash
+  temperature: 0.7
+  maxTokens: 65536
+  contextWindow: 786432
+  apiEndpoint: https://api.deepseek.com
+  apiKeyEnv: DEEPSEEK_API_KEY
+modelOverrides:
+  builtin:coordinator:
+    provider: deepseek
+    model: deepseek-v4-flash
+    temperature: 1
+    maxTokens: 65536
+    contextWindow: 786432
+  Worker:
+    provider: deepseek
+    model: deepseek-v4-flash
+    temperature: 1
+    maxTokens: 65536
+    contextWindow: 786431
+  Specialist:
+    provider: deepseek
+    model: deepseek-v4-flash
+    temperature: 1
+    maxTokens: 65536
+    contextWindow: 786432
+terminal:
+  theme: dark
+  colorLevel: auto
+  animation: true
+  layout:
+    showStatusBar: true
+    showSessionId: true
+    showContextUsage: true
+    showModelName: true
+    statusBarPosition: top
+permissions:
+  defaultMode: ask
+  dangerousCommands:
+    - rm\s+(-rf?\s+)?/
+    - git\s+push\s+--force
+    - DROP\s+TABLE
+    - DELETE\s+FROM
+    - sudo\s+
+    - chmod\s+777
+storage:
+  transcriptFormat: jsonl
+  maxSessionSizeBytes: 104857600
+skillImports:
+  - path: ./.claude/agents/
+    adapter: claude-code
+    priority: 100
+  - path: ./.ouroboros/skills/
+    adapter: claude-code
+    priority: 50
+toolAliases: {}
+contextMerge:
+  strategy: append
+garbageCollection:
+  terminatedRetentionMinutes: 5
+  archivedRetentionDays: 7
+  sweepIntervalMinutes: 10

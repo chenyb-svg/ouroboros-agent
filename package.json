@@ -1,0 +1,59 @@
+{
+  "name": "ouroboros-agent",
+  "version": "1.0.0",
+  "description": "CLI-native AI agent framework — ReAct engine, 30+ tools, memory, skills, WeChat bot. The terminal is the operating system.",
+  "type": "module",
+  "main": "src/repl.ts",
+  "bin": {
+    "ourob": "./bin/ourob.js"
+  },
+  "files": [
+    "src/",
+    "bin/",
+    ".ouroboros/",
+    "notify.bat",
+    "README.md",
+    ".env.example"
+  ],
+  "scripts": {
+    "dev": "tsx src/repl.ts",
+    "build": "tsc",
+    "start": "node dist/repl.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chenyb-svg/ouroboros-agent"
+  },
+  "keywords": [
+    "ai-agent",
+    "cli",
+    "llm",
+    "terminal",
+    "react-agent",
+    "multi-agent",
+    "deepseek",
+    "openai",
+    "wechat-bot",
+    "typescript"
+  ],
+  "author": "陈宇博 / chenyubo",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.0.0"
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.17",
+    "docx": "^9.7.1",
+    "figlet": "^1.11.0",
+    "js-yaml": "^4.1.0",
+    "openai": "^6.35.0",
+    "pptxgenjs": "^4.0.1",
+    "tsx": "^4.19.0"
+  },
+  "devDependencies": {
+    "@types/figlet": "^1.7.0",
+    "@types/js-yaml": "^4.0.9",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  }
+}

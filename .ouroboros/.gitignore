@@ -1,0 +1,5 @@
+# Ouroboros runtime files
+sessions/
+sandbox/
+index/
+*.lock
